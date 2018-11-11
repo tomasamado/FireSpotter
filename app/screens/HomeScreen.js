@@ -1,36 +1,32 @@
 import React from 'react';
-import { StyleSheet, View, Button, TextInput, Text } from 'react-native';
+import { StyleSheet, View, Button, TextInput, Text, Image, StackNavigator } from 'react-native';
 
 
 export class HomeScreen extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { text: '' };
     }
 
     static navigationOptions = {
         title: 'Home',
+        header: null,
     };
-
-    setInputText(text) {
-        this.setState({ text })
-    }
 
     render() {
         return (
             <View style={styles.container}>
-
-
-                <TextInput
-                    style={{ height: 70, marginTop: 50 }}
-                    placeholder="Ingresa tu nombre"
-                    onChangeText={(text) => this.setInputText(text)}
+                <Image
+                    style={{
+                        width: 100, height: 100
+                    }}
+                    source={require('../../assets/spotify.png')}
                 />
 
-                <Text>
-                    {this.state.text}
+
+                <Text style={{ height: 70, marginTop: 50 }}>
+                    Search songs with Spotify
                 </Text>
-                
+
                 <Button style={styles.button}
                     title="Search"
                     onPress={() => {
@@ -47,12 +43,14 @@ export class HomeScreen extends React.Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff',
+        justifyContent: 'center',
+        alignItems: 'center'
     },
     component: {
         alignItems: 'center',
 
     },
     button: {
+
     }
 });
