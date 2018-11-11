@@ -12,7 +12,7 @@ var spotifyApi = new SpotifyWebApi({
   clientSecret: 'ef3edeba7b174259b46609d44625863e',
   redirectUri: 'http://localhost:8888/callback'
 });
-spotifyApi.setAccessToken('BQDX0BoUkVITrBd5UTQhcRDAcwClMT1xAV-HDrIh_Z_TyHVqTvFqaGReedef05tPPp2wlC6CrghMiQ_RFj_rFKBOIiACTt-mnuiqQO8QGuXthTRavxBLJyqypWrD2bQPruonWrQFPdBV56ZbqAG1eulGVw');
+spotifyApi.setAccessToken('BQDqYhrJaptqXakJlDQFwaVSS38vW7JuYqe1tSJ_Oomjbwgj0Zk1vJ2DOuP56NrsbjTp-HwXHK5VW5Rh2FWCvRXiOuACZ7dx6dIoLXqqzuvK93NSry3XXtCTs26dLatWXEDTxLgihPcQKgfAao8p4ZGgfQ');
 
 
 
