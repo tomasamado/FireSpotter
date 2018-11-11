@@ -24,20 +24,27 @@ export class SearchScreen extends React.Component {
         }
     }
 
+    //this.list = [{ name: 'Claudia', lastname: 'Fernandez', age: 24, gender: 'F', key: '1' },
+    //{ name: 'Pedro', lastname: 'Perez', age: 20, gender: 'M', key: '2' }, { name: 'Maria', lastname: 'Gonzalez', age: 34, gender: 'F', key: '3' }];
+
     static navigationOptions = {
         title: 'Songs',
     };
 
     getTracks(searchInput) {
         spotifyApi.searchTracks(searchInput).then((data) => {
+            var song = [];
+            for (var i = 0; i < 5; i++) {
+                song.push({
+                    name: data.body.tracks.items[i].name,
+                    artist: data.body.tracks.items[i].artists[0].name,
+                    album: data.body.tracks.items[i].album.name,
+                    year: data.body.tracks.items[i].album.release_date.substring(0, 4),
+                    cover: data.body.tracks.items[i].album.images[1].url
+                });
+            }
             this.setState({
-                song: {
-                    name: data.body.tracks.items[0].name,
-                    artist: data.body.tracks.items[0].artists[0].name,
-                    album: data.body.tracks.items[0].album.name,
-                    year: data.body.tracks.items[0].album.release_date.substring(0, 4),
-                    cover: data.body.tracks.items[0].album.images[1].url
-                }
+                song: song
             });
         }, (err) => {
             console.log('Something went wrong!', err);
@@ -52,7 +59,7 @@ export class SearchScreen extends React.Component {
                     onChangeText={query => { this.getTracks(query); }}
                 />
                 <FlatList
-                    data={[{ name: this.state.song.name, artist: this.state.song.artist, album: this.state.song.album, year: this.state.song.year, cover:this.state.song.cover}]}
+                    data={this.state.song}
                     //data={this.list}
                     renderItem={({ item }) => <SongComponent navigation={this.props.navigation} item={item} />}
                 />
