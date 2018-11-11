@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, Text, Button } from 'react-native';
+import { View, Text } from 'react-native';
+import { Card, ListItem, Button, Icon } from 'react-native-elements'
 
 export class DetailsScreen extends React.Component {
     static navigationOptions = {
@@ -12,12 +13,16 @@ export class DetailsScreen extends React.Component {
 
         return (
             <View>
-                <Text>Id: {item.key}</Text>
-                <Text>Name: {item.name}</Text>
-                <Text>Lastname: {item.lastname}</Text>
-                <Text>Age: {item.age}</Text>
-                <Text>Gender: {item.gender}</Text>
-                <Button 
+
+                <Card title="" image={require('../../assets/cover.jpg')} >
+
+                        <Text >{item.name} </Text>
+                        <Text>Album: {item.album}</Text>
+                        <Text>Artist: {item.artist}</Text>
+                        <Text>Year: {item.year}</Text>
+                </Card>
+
+                <Button
                     title="Go Back"
                     onPress={() => {
                         this.props.navigation.replace('Search');

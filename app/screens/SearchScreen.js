@@ -10,8 +10,8 @@ export class SearchScreen extends React.Component {
 
     constructor(props) {
         super(props);
-        this.list = [{ name: 'Claudia', lastname: 'Fernandez', age: 24, gender: 'F', key: '1' },
-        { name: 'Pedro', lastname: 'Perez', age: 20, gender: 'M', key: '2' }, { name: 'Maria', lastname: 'Gonzalez', age: 34, gender: 'F', key: '3' }];
+        this.list = [{ name: 'Song Name', album: 'Album', year: 2010, artist: 'Artist', key: '1' },
+        { name: 'Pedro', album: 'Perez', year: 20, artist: 'mijiscma', key: '2' }, { name: 'Maria', album: 'Gonzalez', year: 2001, artist: 'Felicia', key: '3' }];
         console.log(this.list)
     }
     static navigationOptions = {
@@ -28,7 +28,7 @@ export class SearchScreen extends React.Component {
                     renderItem={({ item }) => <SongComponent navigation={this.props.navigation} item={item} />}
                 />
                 <Button
-                    title="Go Home"
+                    title="Home"
                     onPress={() => {
                         this.props.navigation.replace('Home');
                     }}
@@ -40,7 +40,6 @@ export class SearchScreen extends React.Component {
 }
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: '#232b2b',
         marginBottom: 40
     }
 
