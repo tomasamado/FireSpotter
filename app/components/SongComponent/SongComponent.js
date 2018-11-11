@@ -1,7 +1,7 @@
 import React from 'react';
-import { Alert, Text, View } from 'react-native';
+import { Text, View } from 'react-native';
 import styles from './SongStyles'
-
+import { ListItem } from 'react-native-elements'
 
 export class SongComponent extends React.Component {
 
@@ -19,21 +19,13 @@ export class SongComponent extends React.Component {
     render() {
         console.log(this.props.item)
         let item = this.props.item;
-        let fullname = `${this.props.item.name} ${this.props.item.lastname}`;
-        let keyType;
-        if (parseInt(this.props.item.key) % 2 !== 0)
-            keyType = `Key impar`;
-        else
-            keyType = 'Key par';
-
 
         return (
             <View style={styles.container}>
-                <Text onPress={() => this.goTo()} style={styles.principalItem}>{this.props.item.name} {this.props.item.lastname}</Text>
-                <Text onPress={() => {
-                    Alert.alert(`You tapped ${this.props.item.name}`);
-                }} style={styles.textStyle}>{(parseInt(this.props.item.key) % 2) !== 0 ? this.props.item.name : this.props.item.lastname}</Text>
-                <Text style={styles.textStyle}>{keyType}</Text>
+                <Text onPress={() => this.goTo()} style={styles.principalItem}>{this.props.item.name}</Text>
+                <Text style={styles.textStyle}> Album: {this.props.item.album}</Text>
+                <Text style={styles.textStyle}> Artist: {this.props.item.artist}</Text>
+                <Text style={styles.textStyle}> Year: {this.props.item.year}</Text>
             </View>
         );
     }
