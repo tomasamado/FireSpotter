@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet } from 'react-native';
 import { Card, ListItem, Button, Icon } from 'react-native-elements'
-import { BarsComponent } from '../components/BarsComponent/BarsComponent';
+
 
 export class DetailsScreen extends React.Component {
     static navigationOptions = {
@@ -24,7 +24,6 @@ export class DetailsScreen extends React.Component {
                     <Text>Album: {item.album}</Text>
                     <Text>Artist: {item.artist}</Text>
                     <Text>Year: {item.year}</Text>
-                    <BarsComponent></BarsComponent>
                 </Card>
                 <Button
                     title="Go Back"
