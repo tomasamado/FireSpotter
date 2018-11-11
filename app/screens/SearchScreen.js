@@ -11,7 +11,7 @@ var spotifyApi = new SpotifyWebApi({
     clientSecret: 'ef3edeba7b174259b46609d44625863e',
     redirectUri: 'http://localhost:8888/callback'
 });
-spotifyApi.setAccessToken('BQBEMCts05hDuTY3UMaGucEDkwkCLAjTA4PdlWgqWt88Q0_FTgd4nNiJtDqY-xxUTw5-3VFDIJckVQ5sd-yZ-ra_4xuUSE1T2QwvvM_XuKkSumPns8xcAFzBVV-Hd4ZH3gClyPgs7g59OPe2MsaDp54KMg');
+spotifyApi.setAccessToken('BQDqYhrJaptqXakJlDQFwaVSS38vW7JuYqe1tSJ_Oomjbwgj0Zk1vJ2DOuP56NrsbjTp-HwXHK5VW5Rh2FWCvRXiOuACZ7dx6dIoLXqqzuvK93NSry3XXtCTs26dLatWXEDTxLgihPcQKgfAao8p4ZGgfQ');
 
 
 export class SearchScreen extends React.Component {
@@ -47,7 +47,10 @@ export class SearchScreen extends React.Component {
             this.setState({
                 song: {
                     name: data.body.tracks.items[0].name,
-                    artist: data.body.tracks.items[0].artists[0].name
+                    artist: data.body.tracks.items[0].artists[0].name,
+                    album: data.body.tracks.items[0].album.name,
+                    year: data.body.tracks.items[0].album.release_date.substring(0, 4),
+                    cover: data.body.tracks.items[0].album.images[1].url
                 }
             });
         }, (err) => {
@@ -62,7 +65,7 @@ export class SearchScreen extends React.Component {
                     onChangeText={query => { this.getTracks(query); }}
                 />
                 <FlatList
-                    data={[{ name: this.state.song.name, lastname: this.state.song.artist }]}
+                    data={[{ name: this.state.song.name, artist: this.state.song.artist, album: this.state.song.album, year: this.state.song.year, cover:this.state.song.cover}]}
                     //data={this.list}
                     renderItem={({ item }) => <SongComponent navigation={this.props.navigation} item={item} />}
                 />

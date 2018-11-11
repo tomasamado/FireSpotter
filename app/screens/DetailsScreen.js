@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, Image } from 'react-native';
 import { Card, ListItem, Button, Icon } from 'react-native-elements'
 
 export class DetailsScreen extends React.Component {
@@ -13,13 +13,15 @@ export class DetailsScreen extends React.Component {
 
         return (
             <View>
+                <Image style={{ width: 200, height: 200 }}
+                    source={{ uri: item.cover }}
+                />
+                <Card title="">
 
-                <Card title="" image={require('../../assets/cover.jpg')} >
-
-                        <Text >{item.name} </Text>
-                        <Text>Album: {item.album}</Text>
-                        <Text>Artist: {item.artist}</Text>
-                        <Text>Year: {item.year}</Text>
+                    <Text >{item.name} </Text>
+                    <Text>Album: {item.album}</Text>
+                    <Text>Artist: {item.artist}</Text>
+                    <Text>Year: {item.year}</Text>
                 </Card>
 
                 <Button
