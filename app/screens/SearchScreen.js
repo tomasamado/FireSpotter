@@ -25,7 +25,7 @@ export class SearchScreen extends React.Component {
     }
     static navigationOptions = {
         title: 'Songs',
-        
+
     };
 
     getTracks(searchInput) {
@@ -60,16 +60,17 @@ export class SearchScreen extends React.Component {
                     data={this.state.song}
                     //data={this.list}
                     renderItem={({ item }) =>
-                  <SongComponent navigation={this.props.navigation} item={item} />}
+                        <SongComponent navigation={this.props.navigation} item={item} />}
+                    keyExtractor={(item, index) => index.toString()}
                 />
-                <View styles={styles.bottom}> 
-                <Button style={styles.button}
-                    title="Home"
-                    onPress={() => {
-                        this.props.navigation.replace('Home');
-                    }}
-                />
-                </View> 
+                <View styles={styles.bottom}>
+                    <Button style={styles.button}
+                        title="Home"
+                        onPress={() => {
+                            this.props.navigation.replace('Home');
+                        }}
+                    />
+                </View>
             </View>
         );
     }
@@ -79,17 +80,17 @@ const styles = StyleSheet.create({
 
     },
 
-    bottom:{
+    bottom: {
         flex: 1,
         justifyContent: 'flex-end',
         marginBottom: 36,
-        bottom:0
+        bottom: 0
 
     },
     button: {
         position: 'absolute',
-        bottom:0
-      }
+        bottom: 0
+    }
 });
 
 export default styles
