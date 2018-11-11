@@ -9,9 +9,13 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "bower": "^1.8.4",
     "expo": "^31.0.2",
     "react": "16.5.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-31.0.0.tar.gz",
+    "react-native-spotify-web-api": "git+https://github.com/bdavid68/react-native-spotify-web-api.git#master",
+    "spotify-web-api-js": "^1.1.1",
+    "spotify-web-api-node": "^4.0.0",
     "react-native-elements": "^0.19.1",
     "react-navigation": "^2.18.2"
   },
