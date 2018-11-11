@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { Text, View, Image } from 'react-native';
 import styles from './SongStyles'
 
 export class SongComponent extends React.Component {
@@ -19,10 +19,18 @@ export class SongComponent extends React.Component {
         let item = this.props.item;
 
         return (
-            <View style={styles.container}>
+            <View style={{flex: 1, flexDirection: 'row'}}>
+                <Image
+                    style={{ width: 64, height: 64, justifyContent: 'center', alignContent: 'center', alignItems: 'center', alignSelf: 'center', marginTop: 10 }}
+                    source={{ uri: this.props.item.cover }}
+                />
+                <View style={{flex:1, flexDirection: 'column'}}>
                 <Text onPress={() => this.goTo()} style={styles.principalItem}>{this.props.item.name}</Text>
-                <Text onPress={() => this.goTo()} style={styles.textStyle}> Artist: {this.props.item.artist}</Text>
+                <Text onPress={() => this.goTo()} style={styles.textStyle}>Artist: {this.props.item.artist}</Text>
+                </View>
             </View>
         );
     }
 }
+
+

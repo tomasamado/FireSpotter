@@ -2,9 +2,10 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
     principalItem: {
-        fontSize: 20,
+        fontSize: 18,
         padding: 5,
-        width:300
+        width:300,
+        marginRight: 10,
     },
     textStyle: {
         padding: 5,

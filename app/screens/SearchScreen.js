@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Button, FlatList, Text } from 'react-native';
+import { View, Button, List, FlatList, Text } from 'react-native';
 import { SearchBar } from 'react-native-elements'
 import { SongComponent } from '../components/SongComponent/SongComponent';
 import { StyleSheet } from 'react-native';
@@ -11,7 +11,7 @@ var spotifyApi = new SpotifyWebApi({
     clientSecret: 'ef3edeba7b174259b46609d44625863e',
     redirectUri: 'http://localhost:8888/callback'
 });
-spotifyApi.setAccessToken('BQDqYhrJaptqXakJlDQFwaVSS38vW7JuYqe1tSJ_Oomjbwgj0Zk1vJ2DOuP56NrsbjTp-HwXHK5VW5Rh2FWCvRXiOuACZ7dx6dIoLXqqzuvK93NSry3XXtCTs26dLatWXEDTxLgihPcQKgfAao8p4ZGgfQ');
+spotifyApi.setAccessToken('BQDy5xDCcD8OLLwzgbNdruMKXCcGWm3aJjPM4fjqUmD9gvTS7NvAEDB_RdKcZ3Znp8czbD7vPRpeNMNQLUKFtaRkv0Cj6hdfvm_i03E5fUe-dIoHQ0waNgB7JwvNeFHcpG3ZuM_Ex_x1-r_osDIHD6_gXA');
 
 
 export class SearchScreen extends React.Component {
@@ -23,12 +23,9 @@ export class SearchScreen extends React.Component {
             song: { name: 'Not Checked' }
         }
     }
-
-    //this.list = [{ name: 'Claudia', lastname: 'Fernandez', age: 24, gender: 'F', key: '1' },
-    //{ name: 'Pedro', lastname: 'Perez', age: 20, gender: 'M', key: '2' }, { name: 'Maria', lastname: 'Gonzalez', age: 34, gender: 'F', key: '3' }];
-
     static navigationOptions = {
         title: 'Songs',
+        
     };
 
     getTracks(searchInput) {
@@ -58,26 +55,41 @@ export class SearchScreen extends React.Component {
                     placeholder='Search Songs...'
                     onChangeText={query => { this.getTracks(query); }}
                 />
+
                 <FlatList
                     data={this.state.song}
                     //data={this.list}
-                    renderItem={({ item }) => <SongComponent navigation={this.props.navigation} item={item} />}
+                    renderItem={({ item }) =>
+                  <SongComponent navigation={this.props.navigation} item={item} />}
                 />
-                <Button
+                <View styles={styles.bottom}> 
+                <Button style={styles.button}
                     title="Home"
                     onPress={() => {
                         this.props.navigation.replace('Home');
                     }}
                 />
+                </View> 
             </View>
         );
     }
 }
 const styles = StyleSheet.create({
     container: {
-        marginBottom: 40
-    }
 
+    },
+
+    bottom:{
+        flex: 1,
+        justifyContent: 'flex-end',
+        marginBottom: 36,
+        bottom:0
+
+    },
+    button: {
+        position: 'absolute',
+        bottom:0
+      }
 });
 
 export default styles

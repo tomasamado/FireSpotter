@@ -23,8 +23,8 @@ export class HomeScreen extends React.Component {
                 />
 
 
-                <Text style={{ height: 70, marginTop: 50 }}>
-                    Search songs with Spotify
+                <Text style={{ height: 70, marginTop: 50, textAlign: 'center' }}>
+                    Learn fun audio features about your favorite songs such as danceability, energy, valence and more!
                 </Text>
 
                 <Button style={styles.button}
@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
     },
     component: {
         alignItems: 'center',

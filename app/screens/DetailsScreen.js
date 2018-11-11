@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet } from 'react-native';
-import { Card, ListItem, Button, Icon } from 'react-native-elements'
+import { Card, Button } from 'react-native-elements'
 
 
 export class DetailsScreen extends React.Component {
@@ -15,7 +15,7 @@ export class DetailsScreen extends React.Component {
         return (
             <View styles={styles.container}>
                 <Image 
-                    style={{ width: 285, height: 285, justifyContent: 'center', alignContent: 'center', alignItems: 'center', alignSelf: 'center', marginTop: 10}}
+                    style={{ width: 280, height: 280, justifyContent: 'center', alignContent: 'center', alignItems: 'center', alignSelf: 'center', marginTop: 10}}
                     source={{ uri: item.cover }}
                 />
                 <Card title="">
@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
     },
 
     image:{
@@ -51,3 +51,4 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     }
 });
+export default styles
