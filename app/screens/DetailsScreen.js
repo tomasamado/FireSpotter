@@ -1,6 +1,7 @@
 import React from 'react';
-import { View, Text, Image } from 'react-native';
+import { View, Text, Image, StyleSheet } from 'react-native';
 import { Card, ListItem, Button, Icon } from 'react-native-elements'
+import { BarsComponent } from '../components/BarsComponent/BarsComponent';
 
 export class DetailsScreen extends React.Component {
     static navigationOptions = {
@@ -12,8 +13,9 @@ export class DetailsScreen extends React.Component {
         const item = navigation.getParam('item', {});
 
         return (
-            <View>
-                <Image style={{ width: 200, height: 200 }}
+            <View styles={styles.container}>
+                <Image 
+                    style={{ width: 285, height: 285, justifyContent: 'center', alignContent: 'center', alignItems: 'center', alignSelf: 'center', marginTop: 10}}
                     source={{ uri: item.cover }}
                 />
                 <Card title="">
@@ -22,8 +24,8 @@ export class DetailsScreen extends React.Component {
                     <Text>Album: {item.album}</Text>
                     <Text>Artist: {item.artist}</Text>
                     <Text>Year: {item.year}</Text>
+                    <BarsComponent></BarsComponent>
                 </Card>
-
                 <Button
                     title="Go Back"
                     onPress={() => {
@@ -34,3 +36,19 @@ export class DetailsScreen extends React.Component {
         );
     }
 }
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+
+    image:{
+        width: 200, 
+        height: 200,
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center'
+    }
+});
