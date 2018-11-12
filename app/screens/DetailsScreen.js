@@ -11,7 +11,7 @@ var spotifyApi = new SpotifyWebApi({
     clientSecret: 'ef3edeba7b174259b46609d44625863e',
     redirectUri: 'http://localhost:8888/callback'
 });
-spotifyApi.setAccessToken('BQCbKPC_rZoJVbprnFjSAOrqbgF5Xlt16gv0obhw5zQO8UKLWLQUhxtNLyk-9xe_PP2nm4Apq2oSyZ8GEk_YvWv1_lQEuo4M_CZm59yvRjRGaE4LB9eV0evAjMq6cCmDjr657LlQ-pji9cwuys67pQ6skw');
+spotifyApi.setAccessToken('BQBO1UHEPdzjpTpwXRevrNfb1VXpmrLXrjfS7SiGbpYl4xAdsXZiMIWC9xzPPLrntHkvlGVfcfnr3bbx9zeR00X_qbe4nA1Vq6FRVdW5NjmdAZPFuWO86AFYeM2e5bWA-Tm4G19YO8bkQt3SQu4Q-H0Ftw');
 
 
 
@@ -23,10 +23,11 @@ export class DetailsScreen extends React.Component {
 
     state = {
         progress: 0,
-        progress2:0,
-        progress3:0,
-        progress4:0,
-        progress5:0,
+        progress2: 0,
+        progress3: 0,
+        progress4: 0,
+        progress5: 0,
+
     };
 
     getFeatures(id) {
@@ -49,9 +50,9 @@ export class DetailsScreen extends React.Component {
                         return {
                             progress: state.progress + audioFeatures.danceability,
                             progress2: state.progress2 + audioFeatures.energy,
-                            progress3: state.progress2 + audioFeatures.acousticness,
-                            progress4: state.progress2 + audioFeatures.instrumentalness,
-                            progress5: state.progress2 + audioFeatures.valence
+                            progress3: state.progress3 + audioFeatures.acousticness,
+                            progress4: state.progress4 + audioFeatures.instrumentalness,
+                            progress5: state.progress5 + audioFeatures.valence
                         };
                     });
                 }, 1000);
@@ -103,6 +104,39 @@ export class DetailsScreen extends React.Component {
                 <AnimatedBar
 
                     progress={this.state.progress2}
+                    height={20}
+                    borderColor="#DDD"
+                    barColor="tomato"
+                    borderRadius={5}
+                    borderWidth={5}
+                    duration={2000}
+
+                />
+                <AnimatedBar
+
+                    progress={this.state.progress3}
+                    height={20}
+                    borderColor="#DDD"
+                    barColor="tomato"
+                    borderRadius={5}
+                    borderWidth={5}
+                    duration={2000}
+
+                />
+                <AnimatedBar
+
+                    progress={this.state.progress4}
+                    height={20}
+                    borderColor="#DDD"
+                    barColor="tomato"
+                    borderRadius={5}
+                    borderWidth={5}
+                    duration={2000}
+
+                />
+                <AnimatedBar
+
+                    progress={this.state.progress5}
                     height={20}
                     borderColor="#DDD"
                     barColor="tomato"

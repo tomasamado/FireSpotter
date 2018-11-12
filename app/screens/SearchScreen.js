@@ -11,7 +11,7 @@ var spotifyApi = new SpotifyWebApi({
     clientSecret: 'ef3edeba7b174259b46609d44625863e',
     redirectUri: 'http://localhost:8888/callback'
 });
-spotifyApi.setAccessToken('BQCbKPC_rZoJVbprnFjSAOrqbgF5Xlt16gv0obhw5zQO8UKLWLQUhxtNLyk-9xe_PP2nm4Apq2oSyZ8GEk_YvWv1_lQEuo4M_CZm59yvRjRGaE4LB9eV0evAjMq6cCmDjr657LlQ-pji9cwuys67pQ6skw');
+spotifyApi.setAccessToken('BQBO1UHEPdzjpTpwXRevrNfb1VXpmrLXrjfS7SiGbpYl4xAdsXZiMIWC9xzPPLrntHkvlGVfcfnr3bbx9zeR00X_qbe4nA1Vq6FRVdW5NjmdAZPFuWO86AFYeM2e5bWA-Tm4G19YO8bkQt3SQu4Q-H0Ftw');
 
 
 export class SearchScreen extends React.Component {
