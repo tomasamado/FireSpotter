@@ -3,7 +3,6 @@ import { View, Text, Image, StyleSheet, ScrollView } from 'react-native';
 import { Card, Button } from 'react-native-elements'
 import AnimatedBar from "react-native-animated-bar";
 import GradientButton from 'react-native-gradient-buttons';
-import SoundPlayer from 'react-native-sound-player'
 
 
 var SpotifyWebApi = require('spotify-web-api-node');
