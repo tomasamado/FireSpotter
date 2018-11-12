@@ -40,7 +40,7 @@ export class HomeScreen extends React.Component {
                     style={{
                         width: 100, height: 100
                     }}
-                    source={require('../../assets/spotify.png')}
+                    source={require('../../assets/spotify2.png')}
                 />
                 <Text style={{ height: 70, marginTop: 10, textAlign: 'center', fontSize: 24 }}>
                     Spotifired
