@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet, AppRegistry } from 'react-native';
+import { View, Text, Image, StyleSheet, ScrollView } from 'react-native';
 import { Card, Button } from 'react-native-elements'
 import AnimatedBar from "react-native-animated-bar";
 
@@ -11,7 +11,7 @@ var spotifyApi = new SpotifyWebApi({
     clientSecret: 'ef3edeba7b174259b46609d44625863e',
     redirectUri: 'http://localhost:8888/callback'
 });
-spotifyApi.setAccessToken('BQBO1UHEPdzjpTpwXRevrNfb1VXpmrLXrjfS7SiGbpYl4xAdsXZiMIWC9xzPPLrntHkvlGVfcfnr3bbx9zeR00X_qbe4nA1Vq6FRVdW5NjmdAZPFuWO86AFYeM2e5bWA-Tm4G19YO8bkQt3SQu4Q-H0Ftw');
+spotifyApi.setAccessToken('BQBQ69hTXhe7kM91xIQ9d-xnydB9N893Cq9H54lIMNdz8Sun-IGyRnVSkiE1cpO6zOjbEQwyepdxqoJvmC3_SiFqQX_tEn5U5-OCHX3RzsShz00v8mgzR0MeMp9QN5apRX_WV0gmHBYSGaon4AnarC741A');
 
 
 
@@ -72,7 +72,7 @@ export class DetailsScreen extends React.Component {
         this.getFeatures(item.id);
 
         return (
-            <View styles={styles.container}>
+            <ScrollView styles={styles.container}>
                 <Image 
                     style={{ width: 270, height: 270, justifyContent: 'center', alignContent: 'center', alignItems: 'center', alignSelf: 'center', marginTop: 10}}
                     source={{ uri: item.cover }}
@@ -81,56 +81,62 @@ export class DetailsScreen extends React.Component {
                     <Text>Album: {item.album}</Text>
                     <Text>Artist: {item.artist}</Text>
                     <Text>Year: {item.year}</Text>
+
+                    <Text>Danceability:</Text>
                     <AnimatedBar
 
                     progress={this.state.progress}
                     height={20}
                     borderColor="#DDD"
-                    barColor="tomato"
+                    barColor="#d13114"
                     borderRadius={5}
                     borderWidth={5}
                     duration={2000}
 
                 />
+                <Text>Energy:</Text>
                 <AnimatedBar
 
                     progress={this.state.progress2}
                     height={20}
                     borderColor="#DDD"
-                    barColor="tomato"
+                    barColor="#d14914"
                     borderRadius={5}
                     borderWidth={5}
                     duration={2000}
 
                 />
+                <Text>Acousticness:</Text>
                 <AnimatedBar
 
                     progress={this.state.progress3}
                     height={20}
                     borderColor="#DDD"
-                    barColor="tomato"
+                    barColor="#d16214"
                     borderRadius={5}
                     borderWidth={5}
                     duration={2000}
 
                 />
+                <Text>Instrumentalness:</Text>
                 <AnimatedBar
 
                     progress={this.state.progress4}
                     height={20}
                     borderColor="#DDD"
-                    barColor="tomato"
+                    barColor="#d18514"
                     borderRadius={5}
                     borderWidth={5}
                     duration={2000}
 
                 />
+                <Text>Happiness:</Text>
                 <AnimatedBar
 
                     progress={this.state.progress5}
                     height={20}
                     borderColor="#DDD"
-                    barColor="tomato"
+                    barColor="#d1ab14"
                     borderRadius={5}
                     borderWidth={5}
                     duration={2000}
@@ -144,7 +150,7 @@ export class DetailsScreen extends React.Component {
                     }}
                 />
                 
-            </View>
+            </ScrollView>
         );
     }
 }
