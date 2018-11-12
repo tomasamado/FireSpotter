@@ -83,14 +83,7 @@ export class DetailsScreen extends React.Component {
                     <Text>Album: {item.album}</Text>
                     <Text>Artist: {item.artist}</Text>
                     <Text>Year: {item.year}</Text>
-                </Card>
-                <Button
-                    title="Go Back"
-                    onPress={() => {
-                        this.props.navigation.replace('Search');
-                    }}
-                />
-                <AnimatedBar
+                    <AnimatedBar
 
                     progress={this.state.progress}
                     height={20}
@@ -145,6 +138,14 @@ export class DetailsScreen extends React.Component {
                     duration={2000}
 
                 />
+                </Card>
+                <Button
+                    title="Go Back"
+                    onPress={() => {
+                        this.props.navigation.replace('Search');
+                    }}
+                />
+                
             </View>
         );
     }
