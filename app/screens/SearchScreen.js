@@ -3,6 +3,7 @@ import { View, Button, List, FlatList, Text, AppRegistry } from 'react-native';
 import { SearchBar } from 'react-native-elements'
 import { SongComponent } from '../components/SongComponent/SongComponent';
 import { StyleSheet } from 'react-native';
+import GradientButton from 'react-native-gradient-buttons';
 
 
 var SpotifyWebApi = require('spotify-web-api-node');
@@ -64,13 +65,23 @@ export class SearchScreen extends React.Component {
                         <SongComponent navigation={this.props.navigation} item={item} />}
                     keyExtractor={(item, index) => index.toString()}
                 />
-                <View styles={styles.bottom}>
-                    <Button color='black'
-                        title="Home"
-                        onPress={() => {
-                            this.props.navigation.replace('Home');
-                        }}
-                    />
+                <View style={{flex: 1, justifyContent: 'space-evenly', alignItems: 'center', marginVertical: 28}}>
+                <GradientButton
+                    style={{ marginVertical: 8 }}
+                    text="Home"
+                    textStyle={{  fontStyle: 'italic', fontSize: 20 }}
+                    gradientBegin="#D82918"
+                    gradientEnd="#FFA94F"
+                    gradientDirection="diagonal"
+                    height={40}
+                    width={345}
+                    radius={0}
+                    impact
+                    impactStyle='Light'
+                    onPressAction={() => {
+                        this.props.navigation.replace('Home');
+                    }}
+                />
                 </View>
             </View>
         );

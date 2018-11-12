@@ -21,7 +21,7 @@ export class SongComponent extends React.Component {
         return (
             <View style={{flex: 1, flexDirection: 'row'}}>
                 <Image
-                    style={{ width: 64, height: 64, justifyContent: 'center', alignContent: 'center', alignItems: 'center', alignSelf: 'center', marginTop: 10 }}
+                    style={{ width: 64, height: 64, justifyContent: 'center', alignContent: 'center', alignItems: 'center', alignSelf: 'center', marginTop: 10, marginLeft:8 }}
                     source={{ uri: this.props.item.cover }}
                 />
                 <View style={{flex:1, flexDirection: 'column'}}>

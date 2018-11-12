@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "cool",
+    "name": "Spotifire",
     "description": "This project is really great.",
     "slug": "cool",
     "privacy": "public",
@@ -22,6 +22,11 @@
     ],
     "ios": {
       "supportsTablet": true
+      
+    },
+    "android": {
+      "package": "com.tomasamado.spotifire"
+      
     }
   }
 }
