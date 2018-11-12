@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Button, List, FlatList, Text } from 'react-native';
+import { View, Button, List, FlatList, Text, AppRegistry } from 'react-native';
 import { SearchBar } from 'react-native-elements'
 import { SongComponent } from '../components/SongComponent/SongComponent';
 import { StyleSheet } from 'react-native';
@@ -11,7 +11,7 @@ var spotifyApi = new SpotifyWebApi({
     clientSecret: 'ef3edeba7b174259b46609d44625863e',
     redirectUri: 'http://localhost:8888/callback'
 });
-spotifyApi.setAccessToken('BQDy5xDCcD8OLLwzgbNdruMKXCcGWm3aJjPM4fjqUmD9gvTS7NvAEDB_RdKcZ3Znp8czbD7vPRpeNMNQLUKFtaRkv0Cj6hdfvm_i03E5fUe-dIoHQ0waNgB7JwvNeFHcpG3ZuM_Ex_x1-r_osDIHD6_gXA');
+spotifyApi.setAccessToken('BQCbKPC_rZoJVbprnFjSAOrqbgF5Xlt16gv0obhw5zQO8UKLWLQUhxtNLyk-9xe_PP2nm4Apq2oSyZ8GEk_YvWv1_lQEuo4M_CZm59yvRjRGaE4LB9eV0evAjMq6cCmDjr657LlQ-pji9cwuys67pQ6skw');
 
 
 export class SearchScreen extends React.Component {
@@ -37,7 +37,8 @@ export class SearchScreen extends React.Component {
                     artist: data.body.tracks.items[i].artists[0].name,
                     album: data.body.tracks.items[i].album.name,
                     year: data.body.tracks.items[i].album.release_date.substring(0, 4),
-                    cover: data.body.tracks.items[i].album.images[1].url
+                    cover: data.body.tracks.items[i].album.images[1].url,
+                    id: data.body.tracks.items[i].id
                 });
             }
             this.setState({
