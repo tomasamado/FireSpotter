@@ -1,5 +1,6 @@
 import React from 'react';
-import { StyleSheet, View, Button, TextInput, Text, Image, StackNavigator } from 'react-native';
+import { StyleSheet, View, Button, Text, Image } from 'react-native';
+
 
 
 export class HomeScreen extends React.Component {
@@ -21,13 +22,20 @@ export class HomeScreen extends React.Component {
                     }}
                     source={require('../../assets/spotify.png')}
                 />
+                <Text style={{ height: 70, marginTop: 10, textAlign: 'center', fontSize: 24 }}>
+                    Spotifired
+                </Text>
 
-
-                <Text style={{ height: 70, marginTop: 50, textAlign: 'center' }}>
+                <Text style={{ height: 70, marginTop: 10, textAlign: 'center', fontSize: 19 }}>
                     Learn fun audio features about your favorite songs such as danceability, energy, valence and more!
                 </Text>
 
-                <Button style={styles.button}
+                <Text style={{ height: 120, marginTop: 10, textAlign: 'center', fontSize: 14, marginLeft: 30, marginRight: 30 }}>
+                    Based on simple REST principles, the Spotify Web API endpoints return JSON metadata about music artists, albums, 
+                    and tracks directly from the Spotify Data Catalogue.
+                </Text>
+
+                <Button color='black'
                     title="Search"
                     onPress={() => {
                         this.props.navigation.replace('Search');

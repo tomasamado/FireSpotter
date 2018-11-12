@@ -11,7 +11,7 @@ var spotifyApi = new SpotifyWebApi({
     clientSecret: 'ef3edeba7b174259b46609d44625863e',
     redirectUri: 'http://localhost:8888/callback'
 });
-spotifyApi.setAccessToken('BQBQ69hTXhe7kM91xIQ9d-xnydB9N893Cq9H54lIMNdz8Sun-IGyRnVSkiE1cpO6zOjbEQwyepdxqoJvmC3_SiFqQX_tEn5U5-OCHX3RzsShz00v8mgzR0MeMp9QN5apRX_WV0gmHBYSGaon4AnarC741A');
+spotifyApi.setAccessToken('BQBo3EIDnhGxYSEiMhXG1YKoI4TlenyAqzfptf-ViNjiZ8Ai0z6MR0TJ-8U2C-pXqFf0V6wk6uWRrJBlpbhResMRyAEZOnyVuzg1D2YYjVmU458zUokOR4f-YfVfutc46-0KkbE1BKl9vncmrimCQlhBlA');
 
 
 
@@ -143,7 +143,7 @@ export class DetailsScreen extends React.Component {
 
                 />
                 </Card>
-                <Button
+                <Button color='black'
                     title="Search another song"
                     onPress={() => {
                         this.props.navigation.replace('Search');
