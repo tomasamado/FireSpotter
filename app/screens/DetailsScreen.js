@@ -12,7 +12,7 @@ var spotifyApi = new SpotifyWebApi({
     clientSecret: 'ef3edeba7b174259b46609d44625863e',
     redirectUri: 'http://localhost:8888/callback'
 });
-spotifyApi.setAccessToken('BQBo3EIDnhGxYSEiMhXG1YKoI4TlenyAqzfptf-ViNjiZ8Ai0z6MR0TJ-8U2C-pXqFf0V6wk6uWRrJBlpbhResMRyAEZOnyVuzg1D2YYjVmU458zUokOR4f-YfVfutc46-0KkbE1BKl9vncmrimCQlhBlA');
+spotifyApi.setAccessToken('BQBI40J7DptCnbmmbKV1GshhruFRTr4jnMNmW38u1J4Q83EFmI1tx2Yme4ak1jdfjAYF_GiGPlKdy4ts2yBYZ6dpMy__RDatnMv15sMAIlD-BMrdLh79O_UMnCDBUcPkCoDK6VpcHrlpwYI41wqwiTjM7A');
 
 const size = {
     width: '100%',
@@ -69,13 +69,6 @@ export class DetailsScreen extends React.Component {
 
     componentDidMount() {
 
-    }
-    playTrack(){
-        try {
-            SoundPlayer.playUrl('https://p.scdn.co/mp3-preview/1ac11038ad989837bb651f988a10aa997b0a1047?cid=774b29d4f13844c495f206cafdad9c86')
-          } catch (e) {
-            console.log(`cannot play the sound file`, e)
-          }
     }
     render() {
         const { navigation } = this.props;
@@ -168,7 +161,7 @@ export class DetailsScreen extends React.Component {
                     impact
                     impactStyle='Light'
                     onPressAction={() => {
-                        this.playTrack();
+                        this.props.navigation.replace('Search');
                     }}
                 />
                 

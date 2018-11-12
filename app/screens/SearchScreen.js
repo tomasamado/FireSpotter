@@ -5,14 +5,13 @@ import { SongComponent } from '../components/SongComponent/SongComponent';
 import { StyleSheet } from 'react-native';
 import GradientButton from 'react-native-gradient-buttons';
 
-
 var SpotifyWebApi = require('spotify-web-api-node');
 var spotifyApi = new SpotifyWebApi({
     clientId: '0c97682e61534996b733c2570805da2c',
     clientSecret: 'ef3edeba7b174259b46609d44625863e',
     redirectUri: 'http://localhost:8888/callback'
 });
-spotifyApi.setAccessToken('BQBo3EIDnhGxYSEiMhXG1YKoI4TlenyAqzfptf-ViNjiZ8Ai0z6MR0TJ-8U2C-pXqFf0V6wk6uWRrJBlpbhResMRyAEZOnyVuzg1D2YYjVmU458zUokOR4f-YfVfutc46-0KkbE1BKl9vncmrimCQlhBlA');
+spotifyApi.setAccessToken('BQBI40J7DptCnbmmbKV1GshhruFRTr4jnMNmW38u1J4Q83EFmI1tx2Yme4ak1jdfjAYF_GiGPlKdy4ts2yBYZ6dpMy__RDatnMv15sMAIlD-BMrdLh79O_UMnCDBUcPkCoDK6VpcHrlpwYI41wqwiTjM7A');
 
 
 export class SearchScreen extends React.Component {
@@ -49,6 +48,7 @@ export class SearchScreen extends React.Component {
             console.log('Something went wrong!', err);
         });
     }
+    
     render() {
         return (
             <View style={styles.container}>
