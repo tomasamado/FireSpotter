@@ -11,12 +11,12 @@ var spotifyApi = new SpotifyWebApi({
     clientSecret: 'ef3edeba7b174259b46609d44625863e',
     redirectUri: 'http://localhost:8888/callback'
 });
-spotifyApi.setAccessToken('BQBI40J7DptCnbmmbKV1GshhruFRTr4jnMNmW38u1J4Q83EFmI1tx2Yme4ak1jdfjAYF_GiGPlKdy4ts2yBYZ6dpMy__RDatnMv15sMAIlD-BMrdLh79O_UMnCDBUcPkCoDK6VpcHrlpwYI41wqwiTjM7A');
+spotifyApi.setAccessToken('BQDp0yr-IAdoiBdL1prx9pvKUehlUQYncw4iMmZZP6bs_M-IJLCWeGhzotTv5IywICCgYEzzNTIddT1QLKOEVE2dtseMU4qNtnfeO7VpeCbD0JfcUEbFtAzDDM3DYztvAeQ_ylDXAp0Cqx5T9GGzrc2KfQ');
 
 const size = {
     width: '100%',
     height: 300,
-  };
+};
 
 export class DetailsScreen extends React.Component {
 
@@ -32,7 +32,7 @@ export class DetailsScreen extends React.Component {
         progress5: 0,
 
     };
-    
+
 
     getFeatures(id) {
         spotifyApi.getAudioFeaturesForTrack(id)
@@ -76,94 +76,91 @@ export class DetailsScreen extends React.Component {
 
         return (
             <ScrollView styles={styles.container}>
-                <Image 
+                <Image
                     onPress={() => this.playTrack()}
-                    style={{ width: 270, height: 270, justifyContent: 'center', alignContent: 'center', alignItems: 'center', alignSelf: 'center', marginTop: 10}}
+                    style={{ width: 270, height: 270, justifyContent: 'center', alignContent: 'center', alignItems: 'center', alignSelf: 'center', marginTop: 10 }}
                     source={{ uri: item.cover }}
                 />
-                <Card title={item.name}>
-                    <Text>Album: {item.album}</Text>
-                    <Text>Artist: {item.artist}</Text>
-                    <Text>Year: {item.year}</Text>
+                <Card title={item.name} containerStyle={{ }}>
+                    <Text style={{  marginTop: 10 }} >Album: {item.album}</Text>
+                    <Text style={{  marginTop: 10 }}>Artist: {item.artist}</Text>
+                    <Text style={{  marginTop: 10 }}>Year: {item.year}</Text>
 
-                    <Text style={{fontStyle: 'italic'}}  >Danceability:</Text>
+                    <Text style={{ fontStyle: 'italic', marginTop: 10 }}  >Danceability:</Text>
                     <AnimatedBar
 
-                    progress={this.state.progress}
-                    height={20}
-                    borderColor="#DDD"
-                    barColor="#d13114"
-                    borderRadius={5}
-                    borderWidth={5}
-                    duration={2000}
-
-                />
-                <Text style={{fontStyle: 'italic'}}>Energy:</Text>
-                <AnimatedBar
-
-                    progress={this.state.progress2}
-                    height={20}
-                    borderColor="#DDD"
-                    barColor="#d14914"
-                    borderRadius={5}
-                    borderWidth={5}
-                    duration={2000}
-
-                />
-                <Text style={{fontStyle: 'italic'}}>Acousticness:</Text>
-                <AnimatedBar
-
-                    progress={this.state.progress3}
-                    height={20}
-                    borderColor="#DDD"
-                    barColor="#d16214"
-                    borderRadius={5}
-                    borderWidth={5}
-                    duration={2000}
-
-                />
-                <Text style={{fontStyle: 'italic'}}>Instrumentalness:</Text>
-                <AnimatedBar
-
-                    progress={this.state.progress4}
-                    height={20}
-                    borderColor="#DDD"
-                    barColor="#d18514"
-                    borderRadius={5}
-                    borderWidth={5}
-                    duration={2000}
-
-                />
-                <Text style={{fontStyle: 'italic'}}>Happiness:</Text>
-                <AnimatedBar
-
-                    progress={this.state.progress5}
-                    height={20}
-                    borderColor="#DDD"
-                    barColor="#d1ab14"
-                    borderRadius={5}
-                    borderWidth={5}
-                    duration={2000}
+                        progress={this.state.progress}
+                        height={20}
+                        borderColor="#DDD"
+                        barColor="#d13114"
+                        borderRadius={5}
+                        borderWidth={5}
+                        duration={2000}
 
                     />
+                    <Text style={{ fontStyle: 'italic', marginTop: 10 }}>Energy:</Text>
+                    <AnimatedBar
+
+                        progress={this.state.progress2}
+                        height={20}
+                        borderColor="#DDD"
+                        barColor="#d14914"
+                        borderRadius={5}
+                        borderWidth={5}
+                        duration={2000}
+
+                    />
+                    <Text style={{ fontStyle: 'italic', marginTop: 10 }}>Acousticness:</Text>
+                    <AnimatedBar
+
+                        progress={this.state.progress3}
+                        height={20}
+                        borderColor="#DDD"
+                        barColor="#d16214"
+                        borderRadius={5}
+                        borderWidth={5}
+                        duration={2000}
+
+                    />
+                    <Text style={{ fontStyle: 'italic', marginTop: 10 }}>Instrumentalness:</Text>
+                    <AnimatedBar
+
+                        progress={this.state.progress4}
+                        height={20}
+                        borderColor="#DDD"
+                        barColor="#d18514"
+                        borderRadius={5}
+                        borderWidth={5}
+                        duration={2000}
+
+                    />
+                    <Text style={{ fontStyle: 'italic', marginTop: 10 }}>Happiness:</Text>
+                    <AnimatedBar
+
+                        progress={this.state.progress5}
+                        height={20}
+                        borderColor="#DDD"
+                        barColor="#d1ab14"
+                        borderRadius={5}
+                        borderWidth={5}
+                        duration={2000}
+
+                    />
+                    <GradientButton style={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0, marginTop: 20}}
+                        text="Search another song"
+                        textStyle={{ fontStyle: 'italic', fontSize: 16 }}
+                        gradientBegin="#D82918"
+                        gradientEnd="#FFA94F"
+                        gradientDirection="diagonal"
+                        height={40}
+                        width={255}
+                        radius={0}
+                        onPressAction={() => {
+                            this.props.navigation.replace('Search');
+                        }}
+                    />
                 </Card>
-                <GradientButton
-                    style={{ marginVertical: 8 }}
-                    text="Search another song"
-                    textStyle={{  fontStyle: 'italic', fontSize: 20 }}
-                    gradientBegin="#D82918"
-                    gradientEnd="#FFA94F"
-                    gradientDirection="diagonal"
-                    height={40}
-                    width={345}
-                    radius={0}
-                    impact
-                    impactStyle='Light'
-                    onPressAction={() => {
-                        this.props.navigation.replace('Search');
-                    }}
-                />
-                
+
             </ScrollView>
         );
     }

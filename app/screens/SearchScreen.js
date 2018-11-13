@@ -11,7 +11,7 @@ var spotifyApi = new SpotifyWebApi({
     clientSecret: 'ef3edeba7b174259b46609d44625863e',
     redirectUri: 'http://localhost:8888/callback'
 });
-spotifyApi.setAccessToken('BQBI40J7DptCnbmmbKV1GshhruFRTr4jnMNmW38u1J4Q83EFmI1tx2Yme4ak1jdfjAYF_GiGPlKdy4ts2yBYZ6dpMy__RDatnMv15sMAIlD-BMrdLh79O_UMnCDBUcPkCoDK6VpcHrlpwYI41wqwiTjM7A');
+spotifyApi.setAccessToken('BQDp0yr-IAdoiBdL1prx9pvKUehlUQYncw4iMmZZP6bs_M-IJLCWeGhzotTv5IywICCgYEzzNTIddT1QLKOEVE2dtseMU4qNtnfeO7VpeCbD0JfcUEbFtAzDDM3DYztvAeQ_ylDXAp0Cqx5T9GGzrc2KfQ');
 
 
 export class SearchScreen extends React.Component {
@@ -48,7 +48,7 @@ export class SearchScreen extends React.Component {
             console.log('Something went wrong!', err);
         });
     }
-    
+
     render() {
         return (
             <View style={styles.container}>
@@ -65,23 +65,21 @@ export class SearchScreen extends React.Component {
                         <SongComponent navigation={this.props.navigation} item={item} />}
                     keyExtractor={(item, index) => index.toString()}
                 />
-                <View style={{flex: 1, justifyContent: 'space-evenly', alignItems: 'center', marginVertical: 28}}>
-                <GradientButton
-                    style={{ marginVertical: 8 }}
-                    text="Home"
-                    textStyle={{  fontStyle: 'italic', fontSize: 20 }}
-                    gradientBegin="#D82918"
-                    gradientEnd="#FFA94F"
-                    gradientDirection="diagonal"
-                    height={40}
-                    width={345}
-                    radius={0}
-                    impact
-                    impactStyle='Light'
-                    onPressAction={() => {
-                        this.props.navigation.replace('Home');
-                    }}
-                />
+                <View style={{ flex: 1, justifyContent: 'space-evenly', alignItems: 'center', marginVertical: 28 }}>
+                    <GradientButton
+                        style={{ marginVertical: 8 }}
+                        text="Home"
+                        textStyle={{ fontStyle: 'italic', fontSize: 20 }}
+                        gradientBegin="#D82918"
+                        gradientEnd="#FFA94F"
+                        gradientDirection="diagonal"
+                        height={40}
+                        width={345}
+                        radius={0}
+                        onPressAction={() => {
+                            this.props.navigation.replace('Home');
+                        }}
+                    />
                 </View>
             </View>
         );
