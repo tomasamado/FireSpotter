@@ -4,6 +4,7 @@ import { createStackNavigator } from 'react-navigation';
 import { HomeScreen } from './app/screens/HomeScreen';
 import { SearchScreen } from './app/screens/SearchScreen';
 import { DetailsScreen } from './app/screens/DetailsScreen';
+console.disableYellowBox = true;
 
 export default class App extends React.Component {
 

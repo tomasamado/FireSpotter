@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, Button, Text, Image } from 'react-native';
+import { StyleSheet, View, Button, Text, Image, StatusBar} from 'react-native';
 
 var SpotifyWebApi = require('react-native-spotify-web-api');
 var clientId = 'someClientId',
@@ -36,6 +36,7 @@ export class HomeScreen extends React.Component {
           );
         return (
             <View style={styles.container}>
+            <StatusBar hidden />
                 <Image
                     style={{
                         width: 100, height: 100

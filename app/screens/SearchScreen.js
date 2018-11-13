@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Button, List, FlatList, Text, AppRegistry } from 'react-native';
+import { View, Button, List, FlatList, Text, AppRegistry, ScrollView, StatusBar } from 'react-native';
 import { SearchBar } from 'react-native-elements'
 import { SongComponent } from '../components/SongComponent/SongComponent';
 import { StyleSheet } from 'react-native';
@@ -11,7 +11,7 @@ var spotifyApi = new SpotifyWebApi({
     clientSecret: 'ef3edeba7b174259b46609d44625863e',
     redirectUri: 'http://localhost:8888/callback'
 });
-spotifyApi.setAccessToken('BQDp0yr-IAdoiBdL1prx9pvKUehlUQYncw4iMmZZP6bs_M-IJLCWeGhzotTv5IywICCgYEzzNTIddT1QLKOEVE2dtseMU4qNtnfeO7VpeCbD0JfcUEbFtAzDDM3DYztvAeQ_ylDXAp0Cqx5T9GGzrc2KfQ');
+spotifyApi.setAccessToken('BQAohWscQI2O9yCN1hs6PpFdO1zLMFqcyDxV3cFSQFWBxRpW0Qo-Vk2FBCSiR8i0_LYHAu4LdO2SApzAwU_1GlC5gkmnlQISSrGhZk3OaxOwwN81YCIh9uvaCMG8CQxrQrXiyQwO6q0NcmuX-7DxmZ1eEA');
 
 
 export class SearchScreen extends React.Component {
@@ -25,13 +25,14 @@ export class SearchScreen extends React.Component {
     }
     static navigationOptions = {
         title: 'Songs',
+        header: null,
 
     };
 
     getTracks(searchInput) {
         spotifyApi.searchTracks(searchInput).then((data) => {
             var song = [];
-            for (var i = 0; i < 5; i++) {
+            for (var i = 0; i < 10; i++) {
                 song.push({
                     name: data.body.tracks.items[i].name,
                     artist: data.body.tracks.items[i].artists[0].name,
@@ -50,8 +51,10 @@ export class SearchScreen extends React.Component {
     }
 
     render() {
+        
         return (
-            <View style={styles.container}>
+            <ScrollView style={styles.container}>
+            <StatusBar hidden />
                 <SearchBar
                     lightTheme
                     placeholder='Search Songs...'
@@ -60,12 +63,11 @@ export class SearchScreen extends React.Component {
 
                 <FlatList
                     data={this.state.song}
-                    //data={this.list}
                     renderItem={({ item }) =>
                         <SongComponent navigation={this.props.navigation} item={item} />}
                     keyExtractor={(item, index) => index.toString()}
                 />
-                <View style={{ flex: 1, justifyContent: 'space-evenly', alignItems: 'center', marginVertical: 28 }}>
+                <View style={{ flex: 1, justifyContent: 'space-evenly', alignItems: 'center', marginVertical: 28, marginHorizontal: 20 }}>
                     <GradientButton
                         style={{ marginVertical: 8 }}
                         text="Home"
@@ -76,12 +78,14 @@ export class SearchScreen extends React.Component {
                         height={40}
                         width={345}
                         radius={0}
+                        position= 'absolute'
+
                         onPressAction={() => {
                             this.props.navigation.replace('Home');
                         }}
                     />
                 </View>
-            </View>
+            </ScrollView>
         );
     }
 }
