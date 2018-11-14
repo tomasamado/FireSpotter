@@ -5,14 +5,24 @@ import { SongComponent } from '../components/SongComponent/SongComponent';
 import { StyleSheet } from 'react-native';
 import GradientButton from 'react-native-gradient-buttons';
 
-var SpotifyWebApi = require('spotify-web-api-node');
+var SpotifyWebApi = require('react-native-spotify-web-api');
 var spotifyApi = new SpotifyWebApi({
     clientId: '0c97682e61534996b733c2570805da2c',
-    clientSecret: 'ef3edeba7b174259b46609d44625863e',
-    redirectUri: 'http://localhost:8888/callback'
+    clientSecret: 'ef3edeba7b174259b46609d44625863e'
 });
-spotifyApi.setAccessToken('BQAohWscQI2O9yCN1hs6PpFdO1zLMFqcyDxV3cFSQFWBxRpW0Qo-Vk2FBCSiR8i0_LYHAu4LdO2SApzAwU_1GlC5gkmnlQISSrGhZk3OaxOwwN81YCIh9uvaCMG8CQxrQrXiyQwO6q0NcmuX-7DxmZ1eEA');
 
+spotifyApi.clientCredentialsGrant().then(
+    function (data) {
+        console.log('The access token expires in ' + data.body['expires_in']);
+        console.log('The access token is ' + data.body['access_token']);
+
+        // Save the access token so that it's used in future calls
+        spotifyApi.setAccessToken(data.body['access_token']);
+    },
+    function (err) {
+        console.log('Something went wrong when retrieving an access token', err);
+    }
+);
 
 export class SearchScreen extends React.Component {
     list = [];
