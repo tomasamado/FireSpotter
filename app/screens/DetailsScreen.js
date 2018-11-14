@@ -1,28 +1,9 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet, ScrollView } from 'react-native';
+import { View, Text, Image, StyleSheet, ScrollView, Linking, TouchableOpacity } from 'react-native';
 import { Card, Button } from 'react-native-elements'
 import AnimatedBar from "react-native-animated-bar";
 import GradientButton from 'react-native-gradient-buttons';
 
-// var SpotifyWebApi = require('spotify-web-api-node');
-
-// var spotifyApi = new SpotifyWebApi({
-//     clientId: '0c97682e61534996b733c2570805da2c',
-//     clientSecret: 'ef3edeba7b174259b46609d44625863e'
-// });
-
-// spotifyApi.clientCredentialsGrant().then(
-//     function (data) {
-//         console.log('The access token expires in ' + data.body['expires_in']);
-//         console.log('The access token is ' + data.body['access_token']);
-
-//         // Save the access token so that it's used in future calls
-//         spotifyApi.setAccessToken(data.body['access_token']);
-//     },
-//     function (err) {
-//         console.log('Something went wrong when retrieving an access token', err);
-//     }
-// );
 var SpotifyWebApi = require('react-native-spotify-web-api');
 var spotifyApi = new SpotifyWebApi({
     clientId: '0c97682e61534996b733c2570805da2c',
@@ -41,6 +22,7 @@ spotifyApi.clientCredentialsGrant().then(
         console.log('Something went wrong when retrieving an access token', err);
     }
 );
+
 const size = {
     width: '100%',
     height: 300,
@@ -70,11 +52,9 @@ export class DetailsScreen extends React.Component {
                     energy: features.body.energy,
                     acousticness: features.body.acousticness,
                     instrumentalness: features.body.instrumentalness,
-                    valence: features.body.valence,
+                    valence: features.body.valence
                 }
 
-                console.log(features.body.danceability);
-                console.log(features.body.energy);
 
                 const interval = setInterval(() => {
                     if (this.state.progress > 0) return clearInterval(interval);
@@ -105,12 +85,25 @@ export class DetailsScreen extends React.Component {
         return (
             <ScrollView styles={styles.container}>
                 <Image
-                    onPress={() => this.playTrack()}
                     style={{ width: 270, height: 270, justifyContent: 'center', alignContent: 'center', alignItems: 'center', alignSelf: 'center', marginTop: 10 }}
                     source={{ uri: item.cover }}
+                    
                 />
+                <GradientButton style={{borderRadius: 0, marginLeft: 30, alignContent: 'center', alignItems: 'center', marginRight: 0, marginBottom: 0, marginTop: 20}}
+                        text="Play On Spotify"
+                        textStyle={{ fontStyle: 'italic', fontSize: 16 }}
+                        gradientBegin="#D82918"
+                        gradientEnd="#FFA94F"
+                        gradientDirection="diagonal"
+                        height={40}
+                        width={ }
+                        radius={0}
+                        onPressAction={() => Linking.openURL('https://open.spotify.com/track/'+item.id)}
+                    />
                 <Card title={item.name} containerStyle={{ }}>
-                    <Text style={{  marginTop: 10 }} >Album: {item.album}</Text>
+                    <Text 
+                    onPress={() => Linking.openURL('https://open.spotify.com/track/'+item.id)}
+                    style={{  marginTop: 10 }} >Album: {item.album}</Text>
                     <Text style={{  marginTop: 10 }}>Artist: {item.artist}</Text>
                     <Text style={{  marginTop: 10 }}>Year: {item.year}</Text>
 
