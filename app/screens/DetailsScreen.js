@@ -12,10 +12,6 @@ var spotifyApi = new SpotifyWebApi({
 
 spotifyApi.clientCredentialsGrant().then(
     function (data) {
-        console.log('The access token expires in ' + data.body['expires_in']);
-        console.log('The access token is ' + data.body['access_token']);
-
-        // Save the access token so that it's used in future calls
         spotifyApi.setAccessToken(data.body['access_token']);
     },
     function (err) {
@@ -96,13 +92,12 @@ export class DetailsScreen extends React.Component {
                         gradientEnd="#FFA94F"
                         gradientDirection="diagonal"
                         height={40}
-                        width={ }
+                        width={300}
                         radius={0}
                         onPressAction={() => Linking.openURL('https://open.spotify.com/track/'+item.id)}
                     />
                 <Card title={item.name} containerStyle={{ }}>
                     <Text 
-                    onPress={() => Linking.openURL('https://open.spotify.com/track/'+item.id)}
                     style={{  marginTop: 10 }} >Album: {item.album}</Text>
                     <Text style={{  marginTop: 10 }}>Artist: {item.artist}</Text>
                     <Text style={{  marginTop: 10 }}>Year: {item.year}</Text>
