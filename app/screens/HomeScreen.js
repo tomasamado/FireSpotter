@@ -24,7 +24,7 @@ export class HomeScreen extends React.Component {
                     source={require('../../assets/spotify2.png')}
                 />
                 <Text style={{ height: 70, marginTop: 10, textAlign: 'center', fontSize: 24 }}>
-                    Spotifire
+                    FireSpotter
                 </Text>
 
                 <Text style={{ height: 70, marginTop: 10, textAlign: 'center', fontSize: 19 }}>
