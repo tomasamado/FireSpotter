@@ -2,4 +2,4 @@ A react-native app that allows you to search songs from Spotify and display some
 
 <img src="https://github.com/tomasamado/FireSpotter/blob/master/sampleVideo/Sample.gif" width="300" height="534"/>
 
-Used react-native-animated-bar for the stats bar animations https://github.com/codedailyio/react-native-animated-bar
+Used react-native-animated-bar for the stats bar animations https://github.com/codedailyio/react-native-animated-bar.
